@@ -1,0 +1,28 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+dependencies {
+    compile localGroovy()
+    compile gradleApi()
+}
+
+def artifactId = "github-maven"
+group "com.tomtom.plugin"
+version "0.0.1"
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+            pom.version = "$project.version"
+            pom.artifactId = "$artifactId"
+            pom.groupId = "$project.group"
+        }
+    }
+}
