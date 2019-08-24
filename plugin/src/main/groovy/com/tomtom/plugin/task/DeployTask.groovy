@@ -19,15 +19,14 @@ class DeployTask extends DefaultTask {
         def lib = project.extensions.findByName(AchieveExt.NAME)
         def gitExt = project.extensions.findByName(GitRepoExt.NAME)
 
-        project.task(NAME, group: 'githubDeploy', type: DeployTask, dependsOn: ['build']) {
-            doFirst {
-                gitRepo = lib
-                gitRepo = gitExt
-            }
-            doLast {
-                println 'DeployTask <<'
-            }
-        }
+        project.task(NAME,
+                group: 'githubDeploy',
+                type: DeployTask,
+                dependsOn: ['build'],
+                {
+                    gitRepo = lib
+                    achieve = gitExt
+                })
     }
 
     @TaskAction
