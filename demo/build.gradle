@@ -1,0 +1,11 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+
+repositories {
+    mavenLocal()
+    jcenter()
+}
+
+
+//apply plugin: 'github.maven'
