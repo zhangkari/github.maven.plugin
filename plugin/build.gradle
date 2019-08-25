@@ -23,6 +23,8 @@ def PASSWORD = project.property("PASSWORD")
 uploadArchives {
     repositories {
         mavenDeployer {
+            repository(url: uri('../repo'))
+            /*
             repository(url: mavenRepoUrl) {
                 authentication(userName: USER, password: PASSWORD)
             }
@@ -30,6 +32,7 @@ uploadArchives {
             pom.version = "$project.version"
             pom.artifactId = "$artifactId"
             pom.groupId = "$project.group"
+            */
         }
     }
 }

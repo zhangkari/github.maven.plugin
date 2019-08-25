@@ -1,8 +1,7 @@
 package com.tomtom.plugin
 
-
-import org.apache.tools.ant.Project
 import org.gradle.api.Plugin
+import org.gradle.api.Project
 
 class GithubMavenPlugin implements Plugin<Project> {
 
