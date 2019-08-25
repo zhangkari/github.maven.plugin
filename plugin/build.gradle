@@ -16,10 +16,17 @@ def artifactId = "github-maven"
 group "com.tomtom.plugin"
 version "0.0.1"
 
+def mavenRepoUrl = "https://repo.rdc.aliyun.com/repository/41296-release-xkPVm5"
+def USER = project.property("USER")
+def PASSWORD = project.property("PASSWORD")
+
 uploadArchives {
     repositories {
         mavenDeployer {
-            repository(url: uri('../repo'))
+            repository(url: mavenRepoUrl) {
+                authentication(userName: USER, password: PASSWORD)
+            }
+
             pom.version = "$project.version"
             pom.artifactId = "$artifactId"
             pom.groupId = "$project.group"
